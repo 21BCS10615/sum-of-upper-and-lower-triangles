@@ -1,0 +1,28 @@
+#include <vector>
+
+class Solution
+{
+public:
+    std::vector<int> sumTriangles(std::vector<std::vector<int>> matrix, int n)
+    {
+        std::vector<int> answer;
+        int upper = 0, lower = 0;
+        for (int i = 0; i < matrix.size(); i++)
+        {
+            for (int j = 0; j < matrix[0].size(); j++)
+            {
+                if (i <= j)
+                {
+                    upper += matrix[i][j];
+                }
+                if (i >= j)
+                {
+                    lower += matrix[i][j];
+                }
+            }
+        }
+        answer.push_back(upper);
+        answer.push_back(lower);
+        return answer;
+    }
+};
